@@ -42,9 +42,13 @@ namespace IpApi.Implementation
         //main logic check if ip exists in cache or in db
 
         //method ifipexist in cache
-        private bool CheckIfExistInCache()
+        private bool CheckIfExistInCache(GetIpRequest ipRequest)
         {
-            return true;//na thn gemisw
+            if(cacheService.GetValue(ipRequest.Ip) == null)
+            {
+                return false;
+            }
+            return true;
         }
         //method if ip exist in db
     }
