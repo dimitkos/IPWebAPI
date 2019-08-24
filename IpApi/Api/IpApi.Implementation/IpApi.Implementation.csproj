@@ -45,12 +45,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataBaseImplementation.cs" />
+    <Compile Include="MainIpService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\ExternalApi\ExternalApi.Interfaces\ExternalApi.Interfaces.csproj">
+      <Project>{C06E3C8F-0692-4DF0-92B9-9D5BD4C80FB5}</Project>
+      <Name>ExternalApi.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\IpApi.Interfaces\IpApi.Interfaces.csproj">
       <Project>{99136F6A-C4D5-417A-88AC-D733CAD35D8E}</Project>
       <Name>IpApi.Interfaces</Name>

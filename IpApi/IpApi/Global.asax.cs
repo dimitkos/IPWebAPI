@@ -1,4 +1,6 @@
-﻿using IpApi.Implementation;
+﻿using ExternalApi.Implementation;
+using ExternalApi.Interfaces;
+using IpApi.Implementation;
 using IpApi.Interfaces;
 using SimpleInjector;
 using SimpleInjector.Integration.WebApi;
@@ -19,7 +21,11 @@ namespace IpApi
             var container = new Container();
 
             container.Options.DefaultScopedLifestyle = new AsyncScopedLifestyle();
+
             container.Register<IDataBaseService, DataBaseImplementation>(Lifestyle.Scoped);
+            container.Register<IMainIpService, MainIpService>(Lifestyle.Scoped);
+            container.Register<IIPInfoProvider, IpImplementation>(Lifestyle.Scoped);
+
             container.RegisterWebApiControllers(GlobalConfiguration.Configuration);
 
             container.Verify();

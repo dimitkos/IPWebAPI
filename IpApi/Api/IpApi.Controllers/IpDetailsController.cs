@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IpApi.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,5 +10,11 @@ namespace IpApi.Controllers
 {
     public class IpDetailsController : ApiController
     {
+        private readonly IMainIpService mainService;
+
+        public IpDetailsController(IMainIpService mainService)
+        {
+            this.mainService = mainService;
+        }
     }
 }

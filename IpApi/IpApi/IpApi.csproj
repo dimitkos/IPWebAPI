@@ -119,6 +119,14 @@
       <Project>{99136F6A-C4D5-417A-88AC-D733CAD35D8E}</Project>
       <Name>IpApi.Interfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ExternalApi\ExternalApi.Implementation\ExternalApi.Implementation.csproj">
+      <Project>{C8168849-6157-4C48-858A-4418D52BD995}</Project>
+      <Name>ExternalApi.Implementation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExternalApi\ExternalApi.Interfaces\ExternalApi.Interfaces.csproj">
+      <Project>{C06E3C8F-0692-4DF0-92B9-9D5BD4C80FB5}</Project>
+      <Name>ExternalApi.Interfaces</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

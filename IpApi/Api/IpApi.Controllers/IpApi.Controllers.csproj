@@ -56,5 +56,11 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IpApi.Interfaces\IpApi.Interfaces.csproj">
+      <Project>{99136F6A-C4D5-417A-88AC-D733CAD35D8E}</Project>
+      <Name>IpApi.Interfaces</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
