@@ -43,10 +43,10 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Request\GetIpRequest.cs" />
+    <Compile Include="Response\GetIpDetailsResponse.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DataBaseTypes\" />
-    <Folder Include="Response\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

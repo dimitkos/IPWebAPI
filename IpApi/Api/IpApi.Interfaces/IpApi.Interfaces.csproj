@@ -43,5 +43,11 @@
     <Compile Include="IDataBaseService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IpApi.Types\IpApi.Types.csproj">
+      <Project>{726A11A9-404B-44B0-8E07-F2611BADB427}</Project>
+      <Name>IpApi.Types</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
