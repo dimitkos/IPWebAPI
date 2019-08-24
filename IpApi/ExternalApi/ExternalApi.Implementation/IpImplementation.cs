@@ -1,4 +1,5 @@
-﻿using ExternalApi.Interfaces;
+﻿using ExternalApi.Exceptions;
+using ExternalApi.Interfaces;
 using ExternalApi.Types;
 using RestSharp;
 using System;
@@ -20,9 +21,9 @@ namespace ExternalApi.Implementation
                 var queryResult = client.Get<IpResponse>(request).Data;
                 return queryResult;
             }
-            catch(Exception ex)
+            catch(IPServiceNotAvailableException)
             {
-                throw new Exception("IPServiceNotAvailableException");
+                throw new IPServiceNotAvailableException(ip);
             }
             
         }
