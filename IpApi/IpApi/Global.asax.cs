@@ -11,6 +11,17 @@ namespace IpApi
     {
         protected void Application_Start()
         {
+            //var container = new Container();
+
+            //container.Options.DefaultScopedLifestyle = new AsyncScopedLifestyle();
+            //container.Register<IService, OnCoursesImplementation>(Lifestyle.Scoped);
+            //container.RegisterWebApiControllers(GlobalConfiguration.Configuration);
+
+            //container.Verify();
+
+            //GlobalConfiguration.Configuration.DependencyResolver = new SimpleInjectorWebApiDependencyResolver(container);
+
+
             GlobalConfiguration.Configure(WebApiConfig.Register);
         }
     }
