@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="IDataBaseService.cs" />
     <Compile Include="IMainIpService.cs" />
+    <Compile Include="IMemoryCacheImplementation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

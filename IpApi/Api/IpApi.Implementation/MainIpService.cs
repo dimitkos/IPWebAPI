@@ -13,11 +13,14 @@ namespace IpApi.Implementation
     {
         private readonly IDataBaseService dbService;
         private readonly IIPInfoProvider infoProvider;
+        private readonly IMemoryCacheImplementation cacheService;
         
-        public MainIpService(IDataBaseService dbService, IIPInfoProvider infoProvider)
+
+        public MainIpService(IDataBaseService dbService, IIPInfoProvider infoProvider, IMemoryCacheImplementation cacheService)
         {
             this.dbService = dbService;
             this.infoProvider = infoProvider;
+            this.cacheService = cacheService;
         }
         
 
@@ -39,7 +42,10 @@ namespace IpApi.Implementation
         //main logic check if ip exists in cache or in db
 
         //method ifipexist in cache
-
+        private bool CheckIfExistInCache()
+        {
+            return true;//na thn gemisw
+        }
         //method if ip exist in db
     }
 }

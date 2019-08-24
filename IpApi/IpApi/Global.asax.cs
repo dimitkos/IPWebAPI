@@ -25,7 +25,7 @@ namespace IpApi
             container.Register<IDataBaseService, DataBaseImplementation>(Lifestyle.Scoped);
             container.Register<IMainIpService, MainIpService>(Lifestyle.Scoped);
             container.Register<IIPInfoProvider, IpImplementation>(Lifestyle.Scoped);
-
+            container.Register<IMemoryCacheImplementation, MemoryCacheImplementation>(Lifestyle.Scoped);
             container.RegisterWebApiControllers(GlobalConfiguration.Configuration);
 
             container.Verify();
