@@ -110,6 +110,16 @@
     <Folder Include="Controllers\" />
     <Folder Include="Models\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Api\IpApi.Implementation\IpApi.Implementation.csproj">
+      <Project>{332B08E4-D0C6-48D8-8863-C2D1CF451678}</Project>
+      <Name>IpApi.Implementation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Api\IpApi.Interfaces\IpApi.Interfaces.csproj">
+      <Project>{99136F6A-C4D5-417A-88AC-D733CAD35D8E}</Project>
+      <Name>IpApi.Interfaces</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
