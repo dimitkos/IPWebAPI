@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExternalApi.Implementation"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExternalApi.Interfaces", "ExternalApi\ExternalApi.Interfaces\ExternalApi.Interfaces.csproj", "{C06E3C8F-0692-4DF0-92B9-9D5BD4C80FB5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExternalApi.Types", "ExternalApi\ExternalApi.Types\ExternalApi.Types.csproj", "{5DDB38A1-A1C0-4B24-9CE6-DBE6677356BE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +31,10 @@ Global
 		{C06E3C8F-0692-4DF0-92B9-9D5BD4C80FB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C06E3C8F-0692-4DF0-92B9-9D5BD4C80FB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C06E3C8F-0692-4DF0-92B9-9D5BD4C80FB5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5DDB38A1-A1C0-4B24-9CE6-DBE6677356BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DDB38A1-A1C0-4B24-9CE6-DBE6677356BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DDB38A1-A1C0-4B24-9CE6-DBE6677356BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DDB38A1-A1C0-4B24-9CE6-DBE6677356BE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -36,6 +42,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{C8168849-6157-4C48-858A-4418D52BD995} = {7BC6C272-5305-4CA9-8C8E-5C553A9A71E6}
 		{C06E3C8F-0692-4DF0-92B9-9D5BD4C80FB5} = {7BC6C272-5305-4CA9-8C8E-5C553A9A71E6}
+		{5DDB38A1-A1C0-4B24-9CE6-DBE6677356BE} = {7BC6C272-5305-4CA9-8C8E-5C553A9A71E6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D24A164F-4889-443C-BED4-1951AE00BE57}
