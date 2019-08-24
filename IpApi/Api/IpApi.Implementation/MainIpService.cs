@@ -19,12 +19,24 @@ namespace IpApi.Implementation
             this.dbService = dbService;
             this.infoProvider = infoProvider;
         }
-        //main logic check if ip exists in cache or in db
+        
 
         public void FetchIp(GetIpRequest ipRequest)//den einai void tha epistrefei thn ip na thymithw na to allaksw
         {
 
         }
+
+        
+        private bool CheckIfIpExistInDatabase(GetIpRequest ipRequest)
+        {
+            if(dbService.GetIpDetails(ipRequest) == null)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        //main logic check if ip exists in cache or in db
 
         //method ifipexist in cache
 
