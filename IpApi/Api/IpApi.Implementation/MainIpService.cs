@@ -28,7 +28,8 @@ namespace IpApi.Implementation
 
         public GetIpDetailsResponse FetchIp(GetIpRequest ipRequest)
         {
-            if(CheckIfExistInCache(ipRequest))
+
+            if (CheckIfExistInCache(ipRequest))
             {
                 return (GetIpDetailsResponse) cacheService.GetValue(ipRequest.Ip);
             }
@@ -37,25 +38,28 @@ namespace IpApi.Implementation
             {
                 FetchIpFromDbIfExistAndCache(ipRequest);
             }
-
-            if(!CheckIfIpExistInDatabase(ipRequest))
+            else
             {
-                IpResponse result =(IpResponse) infoProvider.GetDetails(ipRequest.Ip);
-                WriteIpInDbRequest writeInDbRequest = new WriteIpInDbRequest//to investigate why extension method dont work
+                IpResponse resultFromLib = (IpResponse)infoProvider.GetDetails(ipRequest.Ip);
+
+                if (resultFromLib != null)
                 {
-                    Ip = ipRequest.Ip,
-                    City = result.City,
-                    Country = result.Country,
-                    Continent = result.Continent,
-                    Latitude = result.Latitude,
-                    Longitude = result.Longitude
-                };
-                if(result != null)
-                {
-                    //must write in db.
+                    WriteIpInDbRequest writeInDbRequest = new WriteIpInDbRequest//to investigate why extension method dont work
+                    {
+                        Ip = ipRequest.Ip,
+                        City = resultFromLib.City,
+                        Country = resultFromLib.Country,
+                        Continent = resultFromLib.Continent,
+                        Latitude = resultFromLib.Latitude,
+                        Longitude = resultFromLib.Longitude
+                    };
+                    dbService.WriteIpDetailsinDataBase(writeInDbRequest);
+                    cacheService.Add(ipRequest.Ip, ipRequest.Ip, DateTimeOffset.UtcNow.AddHours(1));
+                    //must return the ip from library
                 }
             }
-            return new GetIpDetailsResponse();//na to svisw den xreiazetai
+
+            return new GetIpDetailsResponse();//must fix this
         }
 
         #region private methods

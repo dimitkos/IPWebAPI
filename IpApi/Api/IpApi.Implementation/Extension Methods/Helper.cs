@@ -1,4 +1,5 @@
 ﻿using ExternalApi.Types;
+using IpApi.Types.DataBaseTypes;
 using IpApi.Types.Request;
 using System;
 using System.Collections.Generic;
