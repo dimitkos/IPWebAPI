@@ -40,6 +40,7 @@ namespace IpApi.Implementation
             }
             else
             {
+                //must refactor this to other  methods
                 IpResponse resultFromLib = (IpResponse)infoProvider.GetDetails(ipRequest.Ip);
 
                 if (resultFromLib != null)
