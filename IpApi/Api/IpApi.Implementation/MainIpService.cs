@@ -26,7 +26,10 @@ namespace IpApi.Implementation
 
         public void FetchIp(GetIpRequest ipRequest)//den einai void tha epistrefei thn ip na thymithw na to allaksw
         {
+            if(CheckIfExistInCache(ipRequest))
+            {
 
+            }
         }
 
         
