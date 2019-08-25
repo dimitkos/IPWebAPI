@@ -10,7 +10,7 @@ namespace IpApi.Interfaces
     {
         object GetValue(string key);
 
-        bool Add(string key, object value, DateTimeOffset absExpiration);
+        void Add(string key, object value, DateTimeOffset absExpiration);
 
         void Delete(string key);
     }

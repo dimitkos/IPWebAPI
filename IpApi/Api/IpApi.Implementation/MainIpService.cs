@@ -25,23 +25,21 @@ namespace IpApi.Implementation
         }
         
 
-        public GetIpDetailsResponse FetchIp(GetIpRequest ipRequest)//den einai void tha epistrefei thn ip na thymithw na to allaksw
+        public GetIpDetailsResponse FetchIp(GetIpRequest ipRequest)
         {
             if(CheckIfExistInCache(ipRequest))
             {
                 return (GetIpDetailsResponse) cacheService.GetValue(ipRequest.Ip);
             }
-            
-            if(CheckIfIpExistInDatabase(ipRequest))
+
+            if (CheckIfIpExistInDatabase(ipRequest))
             {
-                var result =  dbService.GetIpDetails(ipRequest);
-                //memCacher.Add(token, userId, DateTimeOffset.UtcNow.AddHours(1));
-                return result;
+                FetchIpFromDbIfExistAndCache(ipRequest);
             }
             return new GetIpDetailsResponse();//na to svisw den xreiazetai
         }
 
-        
+        #region private methods
         private bool CheckIfIpExistInDatabase(GetIpRequest ipRequest)
         {
             if(dbService.GetIpDetails(ipRequest) == null)
@@ -51,9 +49,14 @@ namespace IpApi.Implementation
             return true;
         }
 
-        //main logic check if ip exists in cache or in db
+        private GetIpDetailsResponse FetchIpFromDbIfExistAndCache(GetIpRequest ipRequest)
+        {
+            var result = dbService.GetIpDetails(ipRequest);
+            cacheService.Add(ipRequest.Ip, ipRequest.Ip, DateTimeOffset.UtcNow.AddHours(1));
+            return result;
 
-        //method ifipexist in cache
+        }
+
         private bool CheckIfExistInCache(GetIpRequest ipRequest)
         {
             if(cacheService.GetValue(ipRequest.Ip) == null)
@@ -62,6 +65,7 @@ namespace IpApi.Implementation
             }
             return true;
         }
-        //method if ip exist in db
+
+        #endregion
     }
 }

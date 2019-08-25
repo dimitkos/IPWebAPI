@@ -16,10 +16,10 @@ namespace IpApi.Implementation
             return memoryCache.Get(key);
         }
 
-        public bool Add(string key, object value, DateTimeOffset absExpiration)
+        public void Add(string key, object value, DateTimeOffset absExpiration)
         {
             MemoryCache memoryCache = MemoryCache.Default;
-            return memoryCache.Add(key, value, absExpiration);
+            memoryCache.Add(key, value, absExpiration);
         }
 
         public void Delete(string key)
