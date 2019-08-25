@@ -1,4 +1,5 @@
 ﻿using IpApi.Types.Request;
+using IpApi.Types.Response;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,6 @@ namespace IpApi.Interfaces
 {
     public interface IMainIpService
     {
-        void FetchIp(GetIpRequest ipRequest);
+        GetIpDetailsResponse FetchIp(GetIpRequest ipRequest);
     }
 }

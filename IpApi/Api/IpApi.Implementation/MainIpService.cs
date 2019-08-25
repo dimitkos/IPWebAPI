@@ -1,6 +1,7 @@
 ﻿using ExternalApi.Interfaces;
 using IpApi.Interfaces;
 using IpApi.Types.Request;
+using IpApi.Types.Response;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,12 +25,20 @@ namespace IpApi.Implementation
         }
         
 
-        public void FetchIp(GetIpRequest ipRequest)//den einai void tha epistrefei thn ip na thymithw na to allaksw
+        public GetIpDetailsResponse FetchIp(GetIpRequest ipRequest)//den einai void tha epistrefei thn ip na thymithw na to allaksw
         {
             if(CheckIfExistInCache(ipRequest))
             {
-
+                return (GetIpDetailsResponse) cacheService.GetValue(ipRequest.Ip);
             }
+            
+            if(CheckIfIpExistInDatabase(ipRequest))
+            {
+                var result =  dbService.GetIpDetails(ipRequest);
+                //memCacher.Add(token, userId, DateTimeOffset.UtcNow.AddHours(1));
+                return result;
+            }
+            return new GetIpDetailsResponse();//na to svisw den xreiazetai
         }
 
         
