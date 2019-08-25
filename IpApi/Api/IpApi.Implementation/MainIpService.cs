@@ -1,4 +1,5 @@
 ﻿using ExternalApi.Interfaces;
+using ExternalApi.Types;
 using IpApi.Interfaces;
 using IpApi.Types.Request;
 using IpApi.Types.Response;
@@ -35,6 +36,24 @@ namespace IpApi.Implementation
             if (CheckIfIpExistInDatabase(ipRequest))
             {
                 FetchIpFromDbIfExistAndCache(ipRequest);
+            }
+
+            if(!CheckIfIpExistInDatabase(ipRequest))
+            {
+                IpResponse result =(IpResponse) infoProvider.GetDetails(ipRequest.Ip);
+                WriteIpInDbRequest writeInDbRequest = new WriteIpInDbRequest//to investigate why extension method dont work
+                {
+                    Ip = ipRequest.Ip,
+                    City = result.City,
+                    Country = result.Country,
+                    Continent = result.Continent,
+                    Latitude = result.Latitude,
+                    Longitude = result.Longitude
+                };
+                if(result != null)
+                {
+                    //must write in db.
+                }
             }
             return new GetIpDetailsResponse();//na to svisw den xreiazetai
         }

@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using ExternalApi.Types;
 using IpApi.Interfaces;
 using IpApi.Types.Request;
 using IpApi.Types.Response;
@@ -22,6 +23,17 @@ namespace IpApi.Implementation
             using (var con = GetSqlConnection())
             {
                 return con.Query<GetIpDetailsResponse>(sql, parameters).FirstOrDefault(); 
+            }
+        }
+
+        public void WriteIpDetailsinDataBase(WriteIpInDbRequest request)
+        {
+            string sql = @"INSERT INTO ipdetails (Ip,City,Continent,Country,Latitude,Longitude) VALUES (@Ip,@City,@Continent,@Country,@Latitude,@Longitude) ";
+            var parameters = new {request.Ip, request.City, request.Continent, request.Country, request.Latitude, request.Longitude };
+
+            using (var con = GetSqlConnection())
+            {
+                con.Execute(sql, parameters);
             }
         }
 

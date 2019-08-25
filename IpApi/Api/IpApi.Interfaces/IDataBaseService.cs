@@ -11,5 +11,7 @@ namespace IpApi.Interfaces
     public interface IDataBaseService
     {
         GetIpDetailsResponse GetIpDetails(GetIpRequest request);
+
+        void WriteIpDetailsinDataBase(WriteIpInDbRequest request);
     }
 }
